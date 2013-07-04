@@ -1,5 +1,3 @@
 require "redirect_on_back/version"
-
-module RedirectOnBack
-  # Your code goes here...
-end
+require "redirect_on_back/controller_additions"
+require "redirect_on_back/railtie" if defined? Rails
