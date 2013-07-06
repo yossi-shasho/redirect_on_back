@@ -1,24 +1,46 @@
 # RedirectOnBack
 
-TODO: Write a gem description
+Prevent re-submission of a form by redirecting after hitting the back button.
 
-## Installation
+### Example Scenario - User Registration
+
+1. User registers by filling in form and hits 'submit'.
+2. User wants to change one of his details.
+3. User hits 'back'.
+4. User changes something and hits 'submit' again.
+5. Arrrggggg... a new User record has been created instead of updating the old one
+
+## Installation (Rails 3.1 and higher)
 
 Add this line to your application's Gemfile:
 
     gem 'redirect_on_back'
 
-And then execute:
+Then execute:
 
     $ bundle
 
-Or install it yourself as:
 
-    $ gem install redirect_on_back
+And then specify the use of the redirect_on_back
+javascripts in your `application.js`:
+
+    //= require redirect_on_back
 
 ## Usage
 
-TODO: Write usage instructions here
+In your `create` controller actions:
+
+```ruby
+ def create
+    @user = User.build
+    if result = @user.save
+      redirect_on_back edit_user_path(@user)
+      redirect_to @user
+    else
+      render :action => :new
+    end
+  end
+```
 
 ## Contributing
 
