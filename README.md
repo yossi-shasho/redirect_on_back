@@ -32,7 +32,7 @@ In your `create` controller actions:
 
 ```ruby
  def create
-    @user = User.build
+    @user = User.new(params[:user])
     if result = @user.save
       redirect_on_back edit_user_path(@user) # If user hits 'back' he'll be redirected to edit_user_path
       redirect_to @user
