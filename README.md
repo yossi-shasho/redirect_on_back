@@ -28,13 +28,13 @@ javascripts in your `application.js`:
 
 ## Usage
 
-In your `create` controller actions:
+In your controller actions:
 
 ```ruby
  def create
     @user = User.new(params[:user])
     if result = @user.save
-      redirect_on_back edit_user_path(@user) # If user hits 'back' he'll be redirected to edit_user_path
+      redirect_on_back_to edit_user_path(@user) # If user hits 'back' he'll be redirected to edit_user_path
       redirect_to @user
     else
       render :action => :new
