@@ -1,6 +1,6 @@
-# RedirectOnBack
+# Redirect on Back
 
-Prevent re-submission of a form by redirecting after hitting the back button.
+Prevent re-submission of a form by redirecting after user hits the back button. For Rails 3.1 and above.
 
 ### Example Scenario - User Registration
 
@@ -8,7 +8,7 @@ Prevent re-submission of a form by redirecting after hitting the back button.
 2. User wants to change one of his details.
 3. User hits 'back'.
 4. User changes something and hits 'submit' again.
-5. Arrrggggg... a new User record has been created instead of updating the old one
+5. Arrrggg... a new User record has been created instead of updating the existing one.
 
 ## Installation (Rails 3.1 and higher)
 
