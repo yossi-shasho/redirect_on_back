@@ -34,7 +34,7 @@ In your `create` controller actions:
  def create
     @user = User.build
     if result = @user.save
-      redirect_on_back edit_user_path(@user)
+      redirect_on_back edit_user_path(@user) # If user hits 'back' he'll be redirected to edit_user_path
       redirect_to @user
     else
       render :action => :new
