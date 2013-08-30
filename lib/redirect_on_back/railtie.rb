@@ -8,7 +8,7 @@ module RedirectOnBack
 
           def extra_tags_for_form(html_options)
             orig_tags = orig_extra_tags_for_form(html_options)
-            if !disable_redirect_on_back(html_options) && is_internal_action?(html_options[:action] || '/')
+            if !disable_redirect_on_back(html_options) && is_internal_action?(html_options['action'] || '/')
               orig_tags << "<input name='_usec' type='hidden' value='#{Time.now.usec}' />".html_safe
             end
             orig_tags
