@@ -44,7 +44,7 @@ In your controller actions:
 
 ## How to Disable
 
-`redirect_on_back` uses a hidden form field, which it automatically adds to forms.
+redirect_on_back uses a hidden form field, which it automatically adds to forms.
 However, it doesn't add the field to forms that point to different domains, so, for instance, it won't interfere with Amazon S3 file uploads.
 
 To manually disable it in a form, add `disable_redirect_on_back: true` to the `data` hash of that form:
