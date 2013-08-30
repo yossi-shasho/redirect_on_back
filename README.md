@@ -45,11 +45,12 @@ In your controller actions:
 ## How to Disable
 
 `redirect_on_back` uses a hidden form field, which it automatically adds to forms.
-However, it doesn't add the field to forms that point to different domains.
-If you need to disable it in another forms, simply add `disable_redirect_on_back: true` to the `data` hash of that form:
+However, it doesn't add the field to forms that point to different domains, so, for instance, it won't interfere with Amazon S3 file uploads.
+
+To manually disable it in a form, add `disable_redirect_on_back: true` to the `data` hash of that form:
 
 ```erb
-   form_tag :user, data: {disable_redirect_on_back: true}
+   form_tag @user, data: {disable_redirect_on_back: true}
 ```
 
 ## Contributing
