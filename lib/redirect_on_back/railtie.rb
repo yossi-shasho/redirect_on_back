@@ -21,7 +21,6 @@ module RedirectOnBack
           def is_internal_action?(action)
             (action =~ /^\//) != nil  # form action starts with '/'
           end
-
         end
       end
     end
