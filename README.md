@@ -1,13 +1,13 @@
 # Redirect on Back
 
-Prevent re-submission of a form by users who click the back button. Rails 3.1 and above.
+Prevent re-submission of a form after clicking back button. Rails 3.1 and above.
 
 ### Example Scenario - User Registration
 
-1. User registers by filling in form and hits 'submit'.
-2. User wants to change one of his details, and hits the back button.
+1. User fills form and hits 'submit'.
+2. User wants to change something, and hits 'back'.
 3. User changes something and hits 'submit' again.
-4. Arrrggg... a new User record has been created instead of updating the existing one.
+4. Arrrggg... a new record has been created instead of updating the existing one.
 
 ## Installation (Rails 3.1 and higher)
 
@@ -27,24 +27,30 @@ javascripts in your `application.js`:
 
 ## Usage
 
-In your controller actions:
+In a controller action, choose where to navigate the users if they click 'back':
+```ruby
+redirect_on_back_to a_safe_path
+```
+
+
+Full example:
 
 ```ruby
  def create
-    @user = User.new(params[:user])
-    if result = @user.save
+    @user = User.new(user_params)
+    if @user.save
       redirect_on_back_to edit_user_path(@user) # If user hits 'back' he'll be redirected to edit_user_path
       redirect_to @user
     else
-      render :action => :new
+      render :new
     end
   end
 ```
 
 ## How to Disable
 
-redirect_on_back uses a hidden form field, which it automatically adds to forms.
-However, it doesn't add the field to forms that point to different domains, so, for instance, it won't interfere with Amazon S3 file uploads.
+redirect_on_back uses a hidden form field, which is automatically adds to forms.
+However, it's not added to forms that point to different domains, so, for instance, it won't interfere with Amazon S3 file uploads.
 
 To manually disable it in a form, add `disable_redirect_on_back: true` to the `data` hash of that form:
 
