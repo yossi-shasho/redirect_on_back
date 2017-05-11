@@ -1,6 +1,8 @@
 # Redirect on Back
 
-Prevent re-submission of a form after clicking back button. Rails 3.1 and above.
+Just like `redirect_to`, but only if the user hits 'back'.
+A common use case: Prevent re-submission of a form after after user clicks 'back'.
+Rails 3.1 and above.
 
 ### Example Scenario
 
